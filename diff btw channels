@@ -1,0 +1,21 @@
+Channels in Go:
+* Unbuffered Channels: These channels block the sending goroutine until another goroutine reads from the channel. They are useful for synchronous communication between goroutines.
+* Buffered Channels: These channels allow a fixed number of values to be stored in them without blocking the sending goroutine. Once the buffer is full, the sending goroutine will block until some values are read from the channel.
+* Bidirectional Channels: These channels can both send and receive values.
+* Unidirectional Channels: These channels are limited to either sending or receiving. They can be declared as chan<- T (send-only) or <-chan T (receive-only).
+
+Pros of Channels:
+*Safety
+*Synchronization
+*Composition
+
+Cons of Channels
+*Complexity
+*Deadlocks
+*Performance Overhead
+
+Which Channel is Best with Goroutines?
+The choice of the channel type depends on the use case:
+* For simple, synchronous communication, unbuffered channels are generally better because they ensure that both the sender and receiver are in sync.
+* For asynchronous processing where the sender can continue working while the receiver processes the data, buffered channels are more appropriate.
+* Unidirectional channels are useful when you want to enforce that a channel should only be used for sending or receiving, reducing the risk of incorrect usage
